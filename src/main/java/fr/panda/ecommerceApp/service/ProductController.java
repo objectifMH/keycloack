@@ -21,7 +21,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
     
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model){
         return "index";
     }

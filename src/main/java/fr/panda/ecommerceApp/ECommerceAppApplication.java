@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.panda.ecommerceApp.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ECommerceAppApplication implements CommandLineRunner {
