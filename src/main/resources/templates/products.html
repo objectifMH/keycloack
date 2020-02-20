@@ -8,18 +8,21 @@
     </head>
     <body>
         <div layout:fragment="content">
-
-            <table class="table">
-                <tr>
-                    <th>Id</th><th>Nom</th><th>Prix</th>
-                </tr>
-                <tr th:each="p:${products}">
-                    <td th:text="${p.id}"></td>
-                    <td th:text="${p.name}"></td>
-                    <td th:text="${p.price}"></td>
-                </tr>
-            </table>
-        </div>
+            <div class="container">
+                <div class="row">
+                        <table class="table">
+                            <tr>
+                                <th>Id</th><th>Nom</th><th>Prix</th>
+                            </tr>
+                            <tr th:each="p:${products}">
+                                <td th:text="${p.id}"></td>
+                                <td th:text="${p.name}"></td>
+                                <td th:text="${p.price}"></td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+         </div>
 
 
         <a href="/index">Home</a>
