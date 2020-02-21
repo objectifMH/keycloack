@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org" 
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymrleaf-extras-springsecurity5"
+      >
     <head>
         <title>KeycloackCommerce</title>
         <meta charset="UTF-8">
@@ -29,16 +31,20 @@
                         <a class="nav-link" href="#">Fournisseurs</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto" >
-                    <li class="nav-item dropdown ">
+                <ul class="navbar-nav ml-auto">
+                   
+                    <li class="nav-item dropdown " sec:authorize="isAuthenticated()">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            User name
+                             <span sec:authentication="name"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Se deconnecter</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/logout">Se deconnecter</a>
+                            <a class="dropdown-item" href="/changePsswd">Changer le mdp</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a href="/sso/login" class="nav-link btn btn-secondary " >Se Connecter</a>
                     </li>
                 </ul>
             </div>
