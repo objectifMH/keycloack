@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+    <head>
+        <title>KeycloackCommerce</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="container">
+                <div class="row">
+                        <table class="table">
+                            <tr>
+                                <th>Id</th><th>Nom</th><th>Email</th>
+                            </tr>
+                            <tr th:each="f:${fournisseurs}">
+                                <td th:text="${f.id}"></td>
+                                <td th:text="${f.name}"></td>
+                                <td th:text="${f.price}"></td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+         </div>
+
+
+        <a href="/index">Home</a>
+</html>

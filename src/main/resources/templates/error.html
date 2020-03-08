@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+    <head>
+        <title>KeycloackCommerce</title>
+        <meta charset="UTF-8">
+        <base href="/"> 
+        <link rel="stylesheet" href="css/error.css" />
+
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="container">
+                <div class="row">
+                    <h2 style="border: 2px solid darkgray; margin: auto; padding: 25px 20px;margin-top: 40px; border-radius: 10px;" > Vous avez pas l'autorisation de vous retrouvez ici! </h2>
+                </div>
+            </div>
+         </div>
+
+
+        <a href="/index">Home</a>
+</html>
