@@ -32,7 +32,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  *
  * @author gtu
  */
-
 @Controller
 public class ProductController {
 
@@ -56,9 +55,9 @@ public class ProductController {
         request.logout();
         return "redirect:/";
     }
-    
+
     @Autowired
-    private  AdapterDeploymentContext adapterDeploymentContext;
+    private AdapterDeploymentContext adapterDeploymentContext;
 
     @GetMapping("/changePsswd")
     public String changePsswd(RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -66,13 +65,17 @@ public class ProductController {
         KeycloakDeployment deployment = adapterDeploymentContext.resolveDeployment(facade);
         System.out.println(deployment);
         redirectAttributes.addAttribute("referrer", deployment.getResourceName());
+        
+        //Pour permettre d'avoir un onglet dans la console keycloak et revenir à l'application : 
+        redirectAttributes.addAttribute("referrer_uri", request.getHeader("referer"));
+
         return "redirect:" + deployment.getAccountUrl() + "/password";
     }
-    
+
     @ExceptionHandler(Exception.class)
-    public String exceptionHandler(){
+    public String exceptionHandler() {
         System.out.println("Erreur Exception !! ");
         return "error";
     }
-    
+
 }
